@@ -170,6 +170,6 @@ Con estas piezas, la semana 1 queda preparada para explicar:
 * Recursión lineal y recursión con múltiples ramas
 * Disminuir y conquistar
 * Orden local vs orden global
-* Mejor caso, peor caso e intuición asintótica
+* Mejor caso, peor caso e intuición asintótica.
 * Robustez mediante casos borde y reutilización básica.
 
