@@ -4,7 +4,7 @@
 #include "LinkedDeque.h"
 
 int main() {
-    std::cout << "=== Adaptadores enlazados de Semana 3 ===\n\n";
+    std::cout << "Adaptadores enlazados de Semana 3\n\n";
 
     ods::LinkedStack<int> st;
     st.push(10);
