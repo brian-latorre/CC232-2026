@@ -1,6 +1,6 @@
 /*
  * FastSqrt.h
- * Version autocontenida basada en Open Data Structures.
+ * Adaptado pedagogicamente para CC232 a partir del codigo de Morin.
  */
 
 #ifndef FASTSQRT_H_
