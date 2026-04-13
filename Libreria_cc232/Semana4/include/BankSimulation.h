@@ -78,7 +78,7 @@ inline BankSimulationResult simulate(int nWin, int servTime, unsigned int seed =
             ++result.totalArrivals;
         }
 
-        // Atender una unidad de tiempo en cada ventanilla
+        // Atiende una unidad de tiempo en cada ventanilla
         for (int i = 0; i < nWin; ++i) {
             if (!windows[static_cast<std::size_t>(i)].empty()) {
                 Customer& front = windows[static_cast<std::size_t>(i)].front();
