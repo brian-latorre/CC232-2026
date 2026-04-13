@@ -153,7 +153,7 @@ inline bool labyrinth(Maze& maze, Cell* start, Cell* target) {
             return true;
         }
 
-        // Probar direcciones hasta hallar una celda libre
+        // Prueba direcciones hasta hallar una celda libre
         while ((current->outgoing = nextESWN(current->outgoing)) < NO_WAY) {
             Cell* next = neighbor(maze, current);
             if (next != nullptr && next->status == AVAILABLE) {
@@ -161,7 +161,7 @@ inline bool labyrinth(Maze& maze, Cell* start, Cell* target) {
             }
         }
 
-        // Si no hay salida, retroceder
+        // Si no hay salida, retrocede
         if (current->outgoing >= NO_WAY) {
             current->status = BACKTRACKED;
             path.pop();
@@ -214,7 +214,7 @@ inline std::vector<std::pair<int, int>> findPath(Maze& maze, int sx, int sy, int
             return coords;
         }
 
-        // Probar direcciones hasta hallar una celda libre
+        // Prueba direcciones hasta hallar una celda libre
         while ((current->outgoing = nextESWN(current->outgoing)) < NO_WAY) {
             Cell* next = neighbor(maze, current);
             if (next != nullptr && next->status == AVAILABLE) {
@@ -222,7 +222,7 @@ inline std::vector<std::pair<int, int>> findPath(Maze& maze, int sx, int sy, int
             }
         }
 
-        // Si no hay salida, retroceder
+        // Si no hay salida, retrocede
         if (current->outgoing >= NO_WAY) {
             current->status = BACKTRACKED;
             path.pop();
