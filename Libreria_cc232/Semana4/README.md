@@ -1,4 +1,4 @@
-### Semana 4 - Pilas, colas y aplicaciones del capítulo 4
+### Semana 4 - Pilas, colas y aplicaciones del capítulo 4 de Deng
 
 Esta carpeta continúa la estructura de `Libreria_cc232` con una implementación autocontenida de los contenidos centrales de la semana 4 del curso: pilas, colas y varias aplicaciones clásicas del capítulo 4 de Deng.
 
