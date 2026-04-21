@@ -40,7 +40,7 @@ La evaluación se apoya en los temas de:
 El video debe durar entre **25 y 35 minutos**.
 
 - **Menos de 25 minutos:** evidencia insuficiente.
-- **Más de 35 minutos:** no aporta puntaje adicional; se evaluará solo el contenido pertinente.
+- **Más de 35 minutos:** no aporta puntaje adicional, se evaluará solo el contenido pertinente.
 
 #### Estructura obligatoria del video
 
@@ -322,8 +322,8 @@ Si en dominio conceptual obtiene menos de **5/10**, la **nota máxima total** se
 Si además falla compilación o modificación, la nota será **01**.
 
 ##### 9.2 Comprensión del código - 4 puntos
-- identifica funciones, flujo, estados y actualizaciones críticas;
-- sabe señalar dónde se realiza la operación principal;
+- identifica funciones, flujo, estados y actualizaciones críticas,
+- sabe señalar dónde se realiza la operación principal,
 - puede justificar decisiones concretas del código.
 
 ##### 9.3 Compilación, ejecución y resultados - 2 puntos
@@ -368,17 +368,17 @@ El estudiante debe resolver:
 - **1 reto específico** de su problema.
 
 ##### Retos transversales posibles
-1. agregar un caso borde propio y probarlo;  
-2. cambiar nombres poco claros por nombres semánticos;  
-3. encapsular una operación repetida en una función;  
-4. agregar verificación de rango o validez;  
-5. imprimir un estado interno útil para depurar;  
-6. agregar un `assert` o test simple;  
-7. cambiar una estructura auxiliar y explicar el impacto;  
-8. corregir un bug pequeño preparado por él mismo;  
-9. demostrar una versión lenta y luego la versión correcta;  
-10. refactorizar una función muy grande en dos funciones;  
-11. instrumentar el código con trazas para explicar el flujo;  
+1. agregar un caso borde propio y probarlo,
+2. cambiar nombres poco claros por nombres semánticos,
+3. encapsular una operación repetida en una función,
+4. agregar verificación de rango o validez,
+5. imprimir un estado interno útil para depurar,
+6. agregar un `assert` o test simple,
+7. cambiar una estructura auxiliar y explicar el impacto,
+8. corregir un bug pequeño preparado por él mismo,
+9. demostrar una versión lenta y luego la versión correcta,
+10. refactorizar una función muy grande en dos funciones,  
+11. instrumentar el código con trazas para explicar el flujo,  
 12. agregar un nuevo caso de prueba extremo y justificar su resultado.  
 
 ### 11. Lista por problema: preguntas obligatorias y reto grabado
