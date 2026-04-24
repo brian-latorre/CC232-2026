@@ -38,8 +38,8 @@ Además, se busca conectar la implementación de la semana con las ideas de Mori
 
 ##### Lecturas obligatorias
 
-- Secciones de Deng asociadas a `BinNode`, `BinTree`, mantenimiento de alturas, recorridos, sucesor inorden y recorrido por niveles.
-- Secciones de Morin asociadas a `BinaryTree`, `BinaryHeap` y `BinarySearchTree`.
+- Lectura de Deng asociadas a `BinNode`, `BinTree`, mantenimiento de alturas, recorridos, sucesor inorden y recorrido por niveles dado en el repositorio.
+- Secciones de Morin asociadas a `BinaryTree`, `BinaryHeap` y `BinarySearchTree` dado en el repositorio.
 
 #### Bloque 1 - Núcleo conceptual de la semana
 
