@@ -54,5 +54,20 @@ int main() {
     std::cout << "find(50) = " << asignado.find(50) << "\n";
     std::cout << "Estado final -> size=" << asignado.size()
               << ", capacity=" << asignado.capacity() << "\n";
+
+    std::cout << "\n Ejercicio 2.3 \n";
+    ods::DengVector<int> a;
+    a.insert(0, 10);
+    a.insert(1, 20);
+    std::cout << "insert 10 y 20 en a (a[0] = 10, a[1] = 20)\n";
+
+    ods::DengVector<int> b = a; // aqui se usa el copyFrom
+    std::cout << "Copia a en b...\n";
+    std::cout << "se establece a[0] = 99, lo cual no debería afectar a b[0] \n";
+    a[0] = 99;                  // modifica solo el original
+
+    std::cout << "a[0] = " << a[0] << ", b[0] = " << b[0] << "\n";
+    std::cout << "Esperado: a[0] = 99 y b[0] = 10\n";
+
     return 0;
 }
