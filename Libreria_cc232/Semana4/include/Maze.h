@@ -5,6 +5,7 @@
 #include <utility>
 #include <vector>
 
+#include "Queue.h"
 #include "Stack.h"
 
 namespace ods {
@@ -240,6 +241,50 @@ inline std::vector<std::pair<int, int>> findPath(Maze& maze, int sx, int sy, int
     } while (!path.empty());
 
     return {};
+}
+
+// Busca si existe camino entre inicio y destino usando BFS
+inline bool labyrinthBFS(Maze& maze, Cell* start, Cell* target) {
+    if (start == nullptr || target == nullptr) {
+        return false;
+    }
+
+    maze.resetSearchState();
+
+    if (start->status != AVAILABLE || target->status != AVAILABLE) {
+        return false;
+    }
+
+    Queue<Cell*> frontier;
+    start->incoming = UNKNOWN;
+    start->status = ROUTE;
+    frontier.enqueue(start);
+
+    while (!frontier.empty()) {
+        Cell* current = frontier.dequeue();
+        if (current == target) {
+            return true;
+        }
+
+        const int cx = current->x;
+        const int cy = current->y;
+
+        Cell* neighbors[4] = {
+            maze.at(cx, cy + 1),
+            maze.at(cx + 1, cy),
+            maze.at(cx, cy - 1),
+            maze.at(cx - 1, cy)
+        };
+
+        for (Cell* next : neighbors) {
+            if (next != nullptr && next->status == AVAILABLE) {
+                next->status = ROUTE;
+                frontier.enqueue(next);
+            }
+        }
+    }
+
+    return false;
 }
 
 } // namespace ods
