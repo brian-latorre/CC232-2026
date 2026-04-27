@@ -4,6 +4,6 @@
 
 int main() {
     std::vector<int> heights = {2, 1, 5, 6, 2, 3};
-    std::cout << "El rectangulo de mayor area es: " << " " << std::endl;
+    std::cout << "El rectangulo de mayor area es: " << largestRectangleBruteForce(heights) << std::endl;
     return 0;
 }

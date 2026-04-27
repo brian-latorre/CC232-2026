@@ -14,3 +14,24 @@ Ahí es donde me empecé a preguntar: ¿Qué pasa si la mínima altura multiplic
 
 ![](imagenes/dia1_casos.png)
 
+#### Día 2
+
+Aprovechando que venía de la clase de hoy lunes (2026-04-27) empecé a pensar cómo podría alcanzar todos los casos posibles. En lo que se me ocurrió lo siguiente:
+- Usaría un índice i.
+- Usaría un índice j. 
+
+La idea es dejar el índice i fijo e ir "scaneando" los rectángulos existentes hacia la derecha, si choca con uno de ancho uno y altura menor, entonces lo que haría sería determinar el área limitandose con la altura mínima que se encontró en el recorrido y tomando el ancho hasta el último indice j. 
+Al inicio tuve un problema con esta implementación, tuve que consultarle a la IA para corregirme ya que estaba en verdad agarrando la altura solo de los extremos, mas no estaba siendo delimitado por algún valor menor en medio de los dos. 
+
+Adjunto explicación visual: 
+
+![](imagenes/dia2_diagrama_inicial.png)
+
+Caso que me daba el valor 12, esto debido a que solo se consideraba los extremos. 
+
+![](imagenes/dia2_diagrama_solucion.png)
+
+Un ejemplo de caso válido donde si se respetaba que había un mínimo anterior que limitaba.
+
+Según he estado investigando poco a poco, tengo conocimiento que puede existir un caso borde aquí si se implementa mal. También que la complejidad llega a ser $O(n^2)$. Esto lo evaluaré al día siguiente donde empezaré a buscar la respuesta del problema y empezar a aplicar tests. Al final pienso buscar algún video explicando el problema para confirmar que entiendo todo lo que aborda el problema final.  
+
