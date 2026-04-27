@@ -1,1 +1,12 @@
 *.exe
+*.o
+*.a
+*.dll
+*.lib
+
+build/
+
+.vscode/
+
+.DS_Store
+Thumbs.db
