@@ -74,13 +74,15 @@ int main() {
     std::cout << "Resultado: " << resultado_opt << "\n";
     std::cout << "Tiempo CPU: " << duracion_opt << " ms\n";
 
-    std::cout << "\n\nBrute Force vs Stack Monotonica\n\n";
+    std::cout << "\n\nBrute Force vs Optimizado\n\n";
     constexpr int m = 10000;
     auto dato = generateRandom(m);
-    auto t_opt = measure_us([&]{ largestRectangleArea(dato); });
-    std::cout << "n=" << m << ", Optimal:" << t_opt << "\n";
-    auto t_bf = measure_us([&]{ largestRectangleBruteForce(dato); });
-    std::cout << "n=" << m << ", BruteForce: " << t_bf << "\n";
+    int res_opt = 0;
+    auto t_opt = measure_us([&]{ res_opt = largestRectangleArea(dato); });
+    std::cout << "n=" << m << ", Optimizado:" << t_opt << ", Resultado: " << res_opt << "\n";
+    int res_bf = 0;
+    auto t_bf = measure_us([&]{ res_bf = largestRectangleBruteForce(dato); });
+    std::cout << "n=" << m << ", BruteForce: " << t_bf << ", Resultado: " << res_bf << "\n";
     
     return 0;
 }
