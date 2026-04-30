@@ -53,6 +53,22 @@ Puntos adicionales que lleva este problema:
 - Área máxima: Al querer el máximo valor, no necesitamos observar todos los casos. Para hallar el área máxima necesitamos que se maximicen tanto la base como la altura. Por eso pasamos por cada índice, pasamos por todas las alturas posibles y maximizamos las bases buscando los índices que nos límita el crecimiento de la base cambiando la altura tanto a la izquierda como a la derecha, siendo esos las fronteras hasta donde crece la base del rectángulo con altura "h". 
 ![](imagenes/dia3_maximizar_area.png)
 
+**Cálculo de la base**: 
+
+$$base = i - stack.top() - 1$$
+
+Luego, se hace pop()
+
+![](imagenes/dia5_explicacion_NSLNSR.png)
+
+**Cálculo de NSL**:
+
+$$NSL = stack.top$$
+
+**Cálculo de NSR**:
+
+$$NSR = i$$
+
 #### Día 4
 
 Este día hice limpieza del código hecho, uso de la librería algorithm y orden del código con comentarios de explicación. Además de estudiar los tests, benchmarks, más teoría del problema y completar datos en README. 
