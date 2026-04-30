@@ -53,21 +53,41 @@ Puntos adicionales que lleva este problema:
 - Área máxima: Al querer el máximo valor, no necesitamos observar todos los casos. Para hallar el área máxima necesitamos que se maximicen tanto la base como la altura. Por eso pasamos por cada índice, pasamos por todas las alturas posibles y maximizamos las bases buscando los índices que nos límita el crecimiento de la base cambiando la altura tanto a la izquierda como a la derecha, siendo esos las fronteras hasta donde crece la base del rectángulo con altura "h". 
 ![](imagenes/dia3_maximizar_area.png)
 
-**Cálculo de la base**: 
+**Cálculo de NSR**:
 
-$$base = i - stack.top() - 1$$
+Nearest Smaller to Right
 
-Luego, se hace pop()
+$$NSR = i$$
 
-![](imagenes/dia5_explicacion_NSLNSR.png)
+Siendo i el índice del elemento que se quiere ingresar a la pila pero es menor al tope.
+
+**Cálculo de la altura**:
+
+Sería el elemento que está en el tope cuando se quiere ingresar un nuevo valor.
+
+$$h = stack.top()$$
 
 **Cálculo de NSL**:
 
-$$NSL = stack.top$$
+Nearest Smaller to Left
 
-**Cálculo de NSR**:
+$$NSL = stack.top()$$
 
-$$NSR = i$$
+Se consigue luego de haber sacado a la altura de la pila.
+
+**Cálculo de la base**: 
+
+$$base = NSR - NSL - 1$$
+
+Luego, se hace pop()
+
+**Cálculo del Rectángulo**:
+
+$$\text{Rectángulo} = \text{base} \times \text{h}$$
+
+![](imagenes/dia5_explicacion_NSLNSR.png)
+ 
+ Imágen visual de cómo se ve la pila cuando se intenta ingresar uno menor y cómo comienza a establecerse valores.
 
 #### Día 4
 
