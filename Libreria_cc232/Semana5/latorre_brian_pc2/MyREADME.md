@@ -16,7 +16,7 @@ Ahí es donde me empecé a preguntar: ¿Qué pasa si la mínima altura multiplic
 
 #### Día 2
 
-Aprovechando que venía de la clase de hoy lunes (2026-04-27) empecé a pensar cómo podría alcanzar todos los casos posibles. En lo que se me ocurrió lo siguiente:
+Aprovechando que venía de la clase de hoy lunes 2026-04-27 comencé a pensar cómo podría alcanzar todos los casos posibles. En lo que se me ocurrió lo siguiente:
 - Usaría un índice i.
 - Usaría un índice j. 
 
@@ -33,7 +33,6 @@ Caso que me daba el valor 12, esto debido a que solo se consideraba los extremos
 
 Un ejemplo de caso válido donde si se respetaba que había un mínimo anterior que limitaba.
 
-Según he estado investigando poco a poco, tengo conocimiento que puede existir un caso borde aquí si se implementa mal. También que la complejidad llega a ser $O(n^2)$. Esto lo evaluaré al día siguiente donde empezaré a buscar la respuesta del problema y empezar a aplicar tests. Al final pienso buscar algún video explicando el problema para confirmar que entiendo todo lo que aborda el problema final.  
 
 #### Día 3
 
@@ -48,6 +47,28 @@ Lo que terminé aprendiendo es la lógica de cómo funciona la pila monotónica 
 Puntos adicionales que lleva este problema: 
 
 - La pila: Se usaría una pila que guarda los índices del vector `heights` de menor a mayor, convirtiendola en una pila monotónica creciente. Los índices nos ayuda a poder hacer el cálculo de la base y a la vez conseguir el valor de las alturas.
+![](imagenes/dia3_pila.png)
+
 - Condición de entrada a la pila: En la pila ingresarán índices de tal manera que cumplan la condición de que al ser monotónica creciente, la altura de ese índice en el histograma debe ser mayor, de lo contrario se hace un `pop()` de manera consecutiva sacando todos los valores de la pila que sean menores a ese índice que se desea insertar.
-- ¿Cuántas veces puede entrar un índice a la pila?: Como máximo 1 (entra para luego salir), como mínimo 0 (no entra a la pila porque los índices en `top()` son mayores).
 - Área máxima: Al querer el máximo valor, no necesitamos observar todos los casos. Para hallar el área máxima necesitamos que se maximicen tanto la base como la altura. Por eso pasamos por cada índice, pasamos por todas las alturas posibles y maximizamos las bases buscando los índices que nos límita el crecimiento de la base cambiando la altura tanto a la izquierda como a la derecha, siendo esos las fronteras hasta donde crece la base del rectángulo con altura "h". 
+![](imagenes/dia3_maximizar_area.png)
+
+#### Día 4
+
+Este día hice limpieza del código hecho, uso de la librería algorithm y orden del código con comentarios de explicación. Además de estudiar los tests, benchmarks, más teoría del problema y completar datos en README. 
+
+Justificación de la complejidad: 
+
+La complejidad temporal es $O(n)$, en el peor de los casos se hace siempre un push y un pop a la pila, lo cual lo vuelve $2n$, lo cual lo sigue volviendo $O(n)$. Principalmente su comportamiento lineal viene por el recorrido del arreglo y porque entra a la pila una sola vez. 
+
+La complejidad espacial también es $O(n)$ porque en el peor caso, la pila llega a almacenar todos los n índices antes de empezar a sacar alguno, lo cual cumple con que solo una vez entren a la pila.
+
+Aplicación de Tests para tres casos prueba:
+
+Para verificar que la solución funciona correctamente, implementé tres tests usando "assert":
+
+- Caso general
+- Valores repetidos
+- Caso vacío
+
+También se aplicó benchmarks los cuales se pone a prueba solamente al código optimizado y al código hecho con fuerza bruta. 

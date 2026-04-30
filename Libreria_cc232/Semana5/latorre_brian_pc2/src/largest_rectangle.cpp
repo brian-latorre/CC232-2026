@@ -1,33 +1,25 @@
 #include "largest_rectangle.h"
 #include <vector>
 #include <stack>
-
-bool isLarger(int area1, int area2) {
-    if(area1 > area2){
-        return true;
-    }
-    return false;
-}
+#include <algorithm>
 
 int largestRectangleBruteForce(const std::vector<int>& heights) {
-    int maxArea = heights[0];
+
+    int maxArea = 0;
     int rectangle;
     // Recorre todos los íncdices del vector "heights"
     for(int i = 0 ; i < heights.size(); i++){
-        if(isLarger(heights[i], maxArea)){
-            maxArea = heights[i];
-        }
-        
+        maxArea = std::max(maxArea, heights[i]); 
         // Empieza a scanear hacia la derecha calculando cada rectangulo posible a partir del indice "i"
         int minHeight = heights[i]; 
         for(int j = i+1 ; j < heights.size() ; j++ ){
-            if(isLarger(heights[j], minHeight)){ 
+            if(heights[j] > minHeight){ 
                 rectangle = minHeight * (j - i + 1);
             } else { 
                 minHeight = heights[j];
                 rectangle = minHeight * (j - i + 1);
             }
-            if(isLarger(rectangle, maxArea)){
+            if(rectangle > maxArea){
                 maxArea = rectangle;
             }
         }
@@ -35,46 +27,50 @@ int largestRectangleBruteForce(const std::vector<int>& heights) {
     return maxArea;
 }
 
-int largestRectangle(const std::vector<int>& heights) {
+int largestRectangleArea(const std::vector<int>& heights) {
     std::stack<int> indices;
     int maxRectangle = 0;
-    int NSL, NSR, height, base, rectangle, heightIndex;
     for(int i = 0 ; i < heights.size() ; i++ ){ 
-
+        
         while(!indices.empty() && heights[i] < heights[indices.top()]){
-            NSR = i;
-            heightIndex = indices.top();
-            indices.pop();
-            if(indices.empty()){
-                NSL = -1;
-            } else {
-                NSL = indices.top();
-            }
-            height = heights[heightIndex];
-            base = NSR - NSL - 1;
-            rectangle = height * base; // heights[i] * (NSR - NSL - 1)
-            if(isLarger(rectangle, maxRectangle)){
-                maxRectangle = rectangle;
-            }
+            int NSL, NSR, height, base, rectangle, heightIndex;
+
+            heightIndex = indices.top(); indices.pop(); //Obtiene y retira el índice de la pila
+            height = heights[heightIndex]; // Altura del índice sacado (altura del rectángulo)
+
+            NSR = i; // Límite derecho
+
+            // Determina índice izquierdo (incluyendo caso borde izquierdo)
+            NSL = indices.empty() ? -1 : indices.top();
+
+            base = NSR - NSL - 1; // cálculo de la base
+
+            rectangle = height * base; // cálculo del rectángulo: heights[i] * (NSR - NSL - 1)
+
+            // Determinar si este es el máximo encontrado hasta el momento (pero si será el máximo con esa altura)
+            maxRectangle = std::max(maxRectangle, rectangle);
         }
+        // Entra a la pila luego de haber limitado a los rectángulos anteriores o solamente entra por ser mayor que el top()
         indices.push(i);
+
     }
     
-    NSR = heights.size();
+    // Los índices que queden en la pila, contemplan el caso borde derecho, ningún rectángulo del vector fueron menores que estos índices.
     while(!indices.empty()){
+        int NSL, NSR, height, base, rectangle, heightIndex;
+        NSR = heights.size();
+
         heightIndex = indices.top();
         indices.pop();
-        if(indices.empty()){
-            NSL = -1;
-        } else {
-            NSL = indices.top();
-        }
+
+        NSL = indices.empty() ? -1 : indices.top();
+
         height = heights[heightIndex];
         base = NSR - NSL - 1;
         rectangle = height * base;
-        if(isLarger(rectangle, maxRectangle)){
-            maxRectangle = rectangle;
-        }
+
+        maxRectangle = std::max(maxRectangle, rectangle);
     }
+
     return maxRectangle;
 }

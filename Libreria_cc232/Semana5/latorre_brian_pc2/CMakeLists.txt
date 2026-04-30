@@ -4,9 +4,15 @@ project(LatorreBrianPC2)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include_directories(include)
-
 add_library(largest_rectangle_histogram_lib src/largest_rectangle.cpp)
 
+target_include_directories(largest_rectangle_histogram_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
 add_executable(demo_largest_rectangle demos/demo_largest_rectangle.cpp)
+add_executable(demo_bruteforce demos/demo_largest_rectangle_bruteforce.cpp)
+add_executable(test_largest_rectangle tests/test_largest_rectangle.cpp)
+add_executable(benchmark_histogram benchmark/benchmark_histogram.cpp)
+target_link_libraries(benchmark_histogram largest_rectangle_histogram_lib)
+target_link_libraries(demo_bruteforce largest_rectangle_histogram_lib)
 target_link_libraries(demo_largest_rectangle largest_rectangle_histogram_lib)
+target_link_libraries(test_largest_rectangle largest_rectangle_histogram_lib)
