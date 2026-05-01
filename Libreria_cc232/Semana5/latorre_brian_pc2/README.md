@@ -65,7 +65,7 @@ En caso de querer correr el algoritmo Brute Force:
 3. **Caso vacío**: Arreglo de entrada [ ] con salida esperada 0.
 
 ### Historial de commits
-Indica que el historial debe verse en el video.
+El historial de commits están como resultado en el video, con explicación de cómo se fue desarrollando. 
 
 ### Declaración de autoría
 Declaro que entiendo el código entregado, que puedo explicarlo, compilarlo, ejecutarlo y modificarlo sin ayuda externa durante la grabación.

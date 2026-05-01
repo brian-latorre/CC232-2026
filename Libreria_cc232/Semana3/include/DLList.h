@@ -229,9 +229,23 @@ public:
     DLList truncate(int i) {
         assert(0 <= i && i <= n);
         DLList tailPart;
-        while (size() > i) {
-            tailPart.add(remove(i));
+        if (i == n) {
+            return tailPart;
         }
+        Node* split = getNode(i);
+        Node* firstTail = split;
+        Node* lastTail = dummy.prev;
+        Node* lastHead = split->prev;
+
+        tailPart.dummy.next = firstTail;
+        tailPart.dummy.prev = lastTail;
+        tailPart.n = n - i;
+        firstTail->prev = &tailPart.dummy;
+        lastTail->next = &tailPart.dummy;
+
+        dummy.prev = lastHead;
+        lastHead->next = &dummy;
+        n = i;
         return tailPart;
     }
 
