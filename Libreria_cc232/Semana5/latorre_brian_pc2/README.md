@@ -5,6 +5,7 @@
 - Código: 20240398C
 - Problema asignado: 84. Largest Rectangle in Histogram
 - Enlace: https://leetcode.com/problems/largest-rectangle-in-histogram/
+- Video final del proyecto: https://www.youtube.com/watch?v=mZgDj2-zVBo
 
 ### Referencia oficial
 - Archivo de asignación:
