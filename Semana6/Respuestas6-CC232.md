@@ -36,5 +36,5 @@
 6. La altura máxima esperada de un Treap con N nodos es O(log n) gracias a la aleatoriedad de sus prioridades.
 7. Al hacer `delMax` en un Complete Heap, se pone el último elemento en la raíz y luego se hace `percolateDown` (O(log n)).
 8. Para el Leftist Heap, la operación `insert` crea un heap de un solo nodo y hace `merge` con el heap actual.
-9. En Huffman, para N caracteres, tomamos los 2 menores N-1 veces, cada operación en el heap es O(log N), logrando O(N log N).
-10. El null path length (npl) de una hoja en un Leftist Heap es 0, y permite equilibrar hacia la izquierda de forma rápida.
+9. En Huffman, para N caracteres, tomamos los 2 menores N-1 veces, cada operación en el heap es O(log N), logrando O(N logN).
+10. El null path length de una hoja en un Leftist Heap es 0, y permite equilibrar hacia la izquierda de forma rápida.
