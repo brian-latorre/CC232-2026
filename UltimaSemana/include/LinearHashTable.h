@@ -164,6 +164,30 @@ public:
         return s;
     }
     void resetStats() const { stats_.clearRuntimeCounters(); }
+
+    std::optional<T> findMin() const {
+        std::optional<T> result = std::nullopt;
+        for (const auto& slot : table_) {
+            if (slot.state == State::Filled && slot.value) {
+                if (!result || *slot.value < *result) {
+                    result = slot.value;
+                }
+            }
+        }
+        return result;
+    }
+
+    std::optional<T> findMax() const {
+        std::optional<T> result = std::nullopt;
+        for (const auto& slot : table_) {
+            if (slot.state == State::Filled && slot.value) {
+                if (!result || *slot.value > *result) {
+                    result = slot.value;
+                }
+            }
+        }
+        return result;
+    }
 };
 
 }  // namespace ods

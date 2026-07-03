@@ -97,10 +97,13 @@ int main(){
 
     int minRB = rbSorted.front();
     int maxRB = rbSorted.back();
-
+    int minHash = hash.findMin().value_or(-1);
+    int maxHash = hash.findMax().value_or(-1);
+        
     std::cout << "\nMinimo y Maximo de cada estructura:\n";
     std::cout << "Minimo AVL:" << minAVL << ", Maximo AVL:" << maxAVL << "\n";
     std::cout << "Minimo RedBlack:" << minRB << ", Maximo RedBlack:" << maxRB << "\n";
+    std::cout << "Minimo Hash:" << minHash << ", Maximo Hash:" << maxHash << "\n";
 
     std::vector<std::pair<int, int>> rangos;
     rangos.push_back({300, 900});
@@ -116,6 +119,7 @@ int main(){
         auto itRB1 = std::lower_bound(rbSorted.begin(), rbSorted.end(), a);
         auto itRB2 = std::upper_bound(rbSorted.begin(), rbSorted.end(), b);
         int cantidadRB = static_cast<int>(itRB2 - itRB1);
+
 
         std::cout << "\n";
         std::cout << "Consulta por Rangos";
