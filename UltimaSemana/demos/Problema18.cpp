@@ -95,16 +95,10 @@ int main(){
         auto itRB2 = std::upper_bound(rbSorted.begin(), rbSorted.end(), b);
         int cantidadRB = static_cast<int>(itRB2 - itRB1);
 
-        int cantidadHash = 0;
-        for (int x : keys) {
-            if (a <= x && x <= b) {
-                cantidadHash++;
-            }
-        }
 
         std::cout << "Consulta por Rangos";
         std::cout << "\n";
         std::cout << "[" << a << ", " << b << "] ";
-        std::cout << "Cantidad de elementos: AVL=" << cantidadAVL << " RB=" << cantidadRB << " Hash=" << cantidadHash << "\n";
+        std::cout << "Cantidad de elementos: AVL=" << cantidadAVL << " RB=" << cantidadRB << "\n";
     }
 }
