@@ -44,12 +44,29 @@ int main(){
         fallidos.push_back(-(i + 1)); 
     }
 
-    int avl_ok = 0, rb_ok = 0, hash_ok = 0;
+    auto inicioAVL = std::chrono::high_resolution_clock::now();
+    int avl_ok = 0;
     for (int x : encontrados) {
         if (avl.contains(x)) avl_ok++;
+    }
+    auto finAVL = std::chrono::high_resolution_clock::now();
+    auto tiempoAVL = std::chrono::duration_cast<std::chrono::microseconds>(finAVL - inicioAVL).count();
+
+    auto inicioRB = std::chrono::high_resolution_clock::now();
+    int rb_ok = 0;
+    for (int x : encontrados) {
         if (rb.contains(x)) rb_ok++;
+    }
+    auto finRB = std::chrono::high_resolution_clock::now();
+    auto tiempoRB = std::chrono::duration_cast<std::chrono::microseconds>(finRB - inicioRB).count();
+
+    auto inicioHash = std::chrono::high_resolution_clock::now();
+    int hash_ok = 0;
+    for (int x : encontrados) {
         if (hash.contains(x)) hash_ok++;
     }
+    auto finHash = std::chrono::high_resolution_clock::now();
+    auto tiempoHash = std::chrono::duration_cast<std::chrono::microseconds>(finHash - inicioHash).count();
 
     int avl_fail = 0, rb_fail = 0, hash_fail = 0;
     for (int x : fallidos) { //Si no encuentra, no va a incrementar
@@ -58,7 +75,8 @@ int main(){
         if (hash.contains(x)) hash_fail++;
     }
 
-    std::cout << "Tamaño de la colección de claves: " << N << "\n";
+
+    std::cout << "Tamanio de la coleccion de claves: " << N << "\n";
 
     std::cout << "\nBusquedas:\n";
     std::cout << "Consultas exitosas:\n";
@@ -66,6 +84,10 @@ int main(){
 
     std::cout << "Consultas en el vector fallidos encontradas:\n";
     std::cout << "AVL=" << avl_fail << " RB=" << rb_fail << " Hash=" << hash_fail << "\n";
+
+    std::cout << "Tiempo exitosas AVL: " << tiempoAVL << " microsegundos\n";
+    std::cout << "Tiempo exitosas RB: " << tiempoRB << " microsegundos\n";
+    std::cout << "Tiempo exitosas Hash: " << tiempoHash << " microsegundos\n";
 
     std::vector<int> avlSorted = avl.inorder();
     std::vector<int> rbSorted = rb.inorder();
@@ -95,7 +117,7 @@ int main(){
         auto itRB2 = std::upper_bound(rbSorted.begin(), rbSorted.end(), b);
         int cantidadRB = static_cast<int>(itRB2 - itRB1);
 
-
+        std::cout << "\n";
         std::cout << "Consulta por Rangos";
         std::cout << "\n";
         std::cout << "[" << a << ", " << b << "] ";
